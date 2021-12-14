@@ -34,10 +34,15 @@ TODO ...
 #### DEV notes:
 
 api - location of REST logic
+
 classifier - location of genre classification logic
+
 https://github.com/Caparrini/pyGenreClf
 
 logs - django log rotation file (if needed?)
+
 https://docs.djangoproject.com/en/4.0/topics/logging/
 
-SQLlite DB by Django default initialisation. Any ideas to add processing results there? If not DB will be reomved from code.
+
+SQLlite DB by Django default initialisation. 
+Any ideas to add processing results there? If not DB will be reomved from code.
