@@ -46,3 +46,26 @@ https://docs.djangoproject.com/en/4.0/topics/logging/
 
 SQLlite DB by Django default initialisation. 
 Any ideas to add processing results there? If not DB will be reomved from code.
+
+curl example:
+
+curl --location --request POST 'http://localhost:8000/api/process-songs/' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "songs": [
+        "https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_700KB.mp3",
+        "https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_1MG.mp3",
+        "https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_2MG.mp3",
+        "https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_5MG.mp3"
+    ]
+}'
+
+Files will be downloaded to processing_queue dir. Every request create new unique dir for song download.
+
+Example songs for download:
+
+https://file-examples.com/index.php/sample-audio-files/sample-mp3-download/
+https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_700KB.mp3
+https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_1MG.mp3
+https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_2MG.mp3
+https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_5MG.mp3

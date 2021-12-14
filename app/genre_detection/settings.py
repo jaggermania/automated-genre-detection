@@ -153,3 +153,5 @@ LOGGING = {
         },
     }
 }
+
+PROCESSING_QUEUE_DIR = os.path.join(BASE_DIR, 'processing_queue')
