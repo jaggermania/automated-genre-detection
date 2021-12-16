@@ -69,3 +69,39 @@ https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_700KB.mp3
 https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_1MG.mp3
 https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_2MG.mp3
 https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_5MG.mp3
+
+Response:
+
+{
+    "msg": "Automatic genre detection finished, job ID: 068951cd-139d-4235-9859-999489342fb3.",
+    "genre_detection_results": [
+        {
+            "url": "https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_700KB.mp3",
+            "downloaded": true,
+            "genre_detected": "PsyTrance",
+            "name": "file_example_MP3_700KB.mp3",
+            "full_path": "/opt/project/app/processing_queue/068951cd-139d-4235-9859-999489342fb3/file_example_MP3_700KB.mp3"
+        },
+        {
+            "url": "https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_1MG.mp3",
+            "downloaded": true,
+            "genre_detected": "PsyTrance",
+            "name": "file_example_MP3_1MG.mp3",
+            "full_path": "/opt/project/app/processing_queue/068951cd-139d-4235-9859-999489342fb3/file_example_MP3_1MG.mp3"
+        },
+        {
+            "url": "https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_2MG.mp3",
+            "downloaded": true,
+            "genre_detected": "PsyTrance",
+            "name": "file_example_MP3_2MG.mp3",
+            "full_path": "/opt/project/app/processing_queue/068951cd-139d-4235-9859-999489342fb3/file_example_MP3_2MG.mp3"
+        },
+        {
+            "url": "https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_5MG.mp3",
+            "downloaded": true,
+            "genre_detected": "ElectronicaDowntempo",
+            "name": "file_example_MP3_5MG.mp3",
+            "full_path": "/opt/project/app/processing_queue/068951cd-139d-4235-9859-999489342fb3/file_example_MP3_5MG.mp3"
+        }
+    ]
+}

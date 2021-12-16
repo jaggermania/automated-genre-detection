@@ -494,6 +494,4 @@ def predictGenre(song_file_name, clf_pkl=os.path.join(os.path.dirname(__file__),
     x = librosa.resample(x, Fs, 22050)
     x = librosa.to_mono(x)
     feats = extractFeatures(22050, x[:22050 * 120], 1, 1, 0.05, 0.05)
-    x = clf.predict([feats])
-    print(x)
     return clf.predict([feats])[0]
