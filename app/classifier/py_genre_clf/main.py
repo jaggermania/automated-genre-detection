@@ -12,13 +12,13 @@ def main():
         extractFeaturesFolder(args.output_DataFrame, args.dataset_folder, args.mtwin, args.mtstep, args.stwin, args.ststep)
     elif args.task == "bestForestClassifier":
         df = pd.DataFrame.from_csv(args.DataFrame)
-        opt = ForestOptimizer(df)
+        opt = ForestOptimizer(df, "log_bf.log")
         clf = opt.optimizeClf(args.population, args.generations)
         clf = KFoldCrossValidation(df, args.report_folder, clf)
         joblib.dump(clf, args.clf_file)
     elif args.task == "bestTreeClassifier":
         df = pd.DataFrame.from_csv(args.DataFrame)
-        opt = TreeOptimizer(df)
+        opt = TreeOptimizer(df, "log_bt.log")
         clf = opt.optimizeClf(args.population, args.generations)
         clf = TreeKFoldReport(df, args.report_folder, clf)
         joblib.dump(clf, args.clf_file)

@@ -215,7 +215,7 @@ def KFoldCrossValidation(df, report_folder, clf, random_state=None):
 
         labels_kfold.extend(labels_test)
         labels_kfold_predicted.extend(labels_pred_test)
-        codes.extend(features_test[:,71])
+        codes.extend(features_test[:,70])
 
         kcounter += 1
 
@@ -288,6 +288,8 @@ def TreeKFoldReport(df, report_folder, clf, n_splits=10, random_state=None):
     kcounter = 0
 
     # Report file with useful information
+    import distutils.dir_util
+    distutils.dir_util.mkpath(report_folder)
     report = open(os.path.join(report_folder, "report.txt"), "w")
 
     # Iterate over the KFolds and do stuff
@@ -485,10 +487,13 @@ def predictGenre(song_file_name, clf_pkl=os.path.join(os.path.dirname(__file__),
     :param str clf_pkl: binary classifier route
     :return: genre of the song using the classifier given or the default beatport classifier
     '''
-
     clf = joblib.load(clf_pkl)
+    if type(clf) is tuple: 
+        clf = clf[0]
     x, Fs = librosa.load(song_file_name)
     x = librosa.resample(x, Fs, 22050)
     x = librosa.to_mono(x)
     feats = extractFeatures(22050, x[:22050 * 120], 1, 1, 0.05, 0.05)
+    x = clf.predict([feats])
+    print(x)
     return clf.predict([feats])[0]

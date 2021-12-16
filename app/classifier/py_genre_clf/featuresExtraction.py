@@ -230,7 +230,7 @@ def extractFeatures(Fs, x, mtWin, mtStep, stWin, stStep):
 
     MidTermFeatures = np.append(MidTermFeatures, beat)
     MidTermFeatures = np.append(MidTermFeatures, beatConf)
-    #MidTermFeatures = np.append(MidTermFeatures, extractBPM(x))
+    MidTermFeatures = np.append(MidTermFeatures, extractBPM(x))
 
     t2 = time.clock()
     print("Processing time : " + str(t2-t1))

@@ -5,6 +5,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, ExtraTreesClassifier, GradientBoostingClassifier
 from abc import ABCMeta, abstractmethod
 import matplotlib.pyplot as plt
+plt.switch_backend('agg')
 from deap import base, creator, tools, algorithms
 import pathos.multiprocessing as multiprocessing
 
@@ -214,8 +215,8 @@ class TreeOptimizer(BaseOptimizer):
                                      splitter="best",
                                      max_features=None,
                                      max_depth=None,
-                                     min_samples_split=individual[0],
-                                     min_samples_leaf=individual[1],
+                                     min_samples_split=2,#individual[0],
+                                     min_samples_leaf=1,#individual[1],
                                      min_weight_fraction_leaf=0,
                                      max_leaf_nodes=None,
                                      random_state=None,
@@ -231,9 +232,9 @@ class TreeOptimizer(BaseOptimizer):
         """
         params = []
         # min_samples_split
-        params.append(Param("min_samples_split", 2, 100, int))
+        params.append(Param("min_samples_split", 2.0, 100.0, float))
         # min_samples_leaf
-        params.append(Param("min_samples_leaf", 1, 100, int))
+        params.append(Param("min_samples_leaf", 2.0, 100.0, float))
         # Return all the params
         return params
 
@@ -249,11 +250,11 @@ class ForestOptimizer(TreeOptimizer):
         :param individual: individual to create classifier
         :return: classifier sklearn.ensemble.RandomForestClassifier
         """
-        clf = RandomForestClassifier(n_estimators=individual[3],
+        clf = RandomForestClassifier(n_estimators=100,
                                      criterion="gini",
                                      max_depth=None,
-                                     min_samples_split=individual[0],
-                                     min_samples_leaf=individual[1],
+                                     min_samples_split=2,#individual[0],
+                                     min_samples_leaf=1,#individual[1],
                                      min_weight_fraction_leaf=0,
                                      max_features=individual[2],
                                      max_leaf_nodes=None,
